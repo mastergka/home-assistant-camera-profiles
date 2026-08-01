@@ -1,0 +1,21 @@
+save:
+  name: Profil speichern
+  fields:
+    name:
+      required: true
+      selector:
+        text:
+load:
+  name: Profil laden
+  fields:
+    name:
+      required: true
+      selector:
+        text:
+delete:
+  name: Profil löschen
+  fields:
+    name:
+      required: true
+      selector:
+        text:
