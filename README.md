@@ -1,5 +1,7 @@
 # Camera Profiles for Home Assistant
 
+[GitHub-Repository](https://github.com/mastergka/home-assistant-camera-profiles)
+
 Globale, dauerhaft gespeicherte Kameraauswahl-Profile für Home Assistant.
 
 ## Funktionen
@@ -21,4 +23,3 @@ Dieses Repository in HACS als benutzerdefiniertes Repository der Kategorie **Int
 - `button.kameraprofil_speichern`
 - `button.kameraprofil_laden`
 - `button.kameraprofil_loschen`
-
