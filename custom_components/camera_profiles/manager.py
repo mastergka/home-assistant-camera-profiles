@@ -12,13 +12,17 @@ class CameraProfileManager:
         self.store = Store(hass, STORE_VERSION, STORE_KEY)
         self.profiles: dict[str, list[str]] = {}
         self.selected = ""
-        self.name = ""
+        self.name = "Neues Profil"
         self.entities = []
 
     async def load(self) -> None:
         data = await self.store.async_load() or {}
         self.profiles = data.get("profiles", {})
         self.selected = data.get("selected", "")
+        if not self.profiles:
+            self.profiles = {"Standard": self.visible_cameras()}
+            self.selected = "Standard"
+            await self.save_data()
 
     async def save_data(self) -> None:
         await self.store.async_save({"profiles": self.profiles, "selected": self.selected})
@@ -47,4 +51,3 @@ class CameraProfileManager:
             await self.hass.services.async_call("input_boolean", service, {"entity_id": state.entity_id}, blocking=True)
         self.selected = name
         await self.save_data()
-
